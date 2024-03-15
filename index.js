@@ -12,7 +12,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: process.env.SOCKET_IO_ORIGIN || "http://localhost:3000", // Use environment variable or fallback to "http://localhost:3000"
     methods: ["GET", "POST"],
   },
 });
